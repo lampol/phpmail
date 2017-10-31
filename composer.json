@@ -1,0 +1,17 @@
+{
+    "name": "lampol/phpmail",
+    "description": "this is send mail library",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "lampol",
+            "email": "807968192@qq.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {},
+    "autoload":{
+    	"psr-4":{"lampol\\":"src"}
+    }	    
+}
