@@ -10,7 +10,7 @@ use lampol\Mail;
 $config = [
 	'emailName'=>'test@qq.com',
 	'emailPass'=>'testtest',
-	'host'     =>'smtp@163.com'
+	'host'     =>'smtp.163.com'
 ];
 
 //debug  0 关闭  2开启 默认关闭

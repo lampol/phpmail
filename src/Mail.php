@@ -16,12 +16,12 @@ class Mail extends PHPMailer{
 
 
 	//初始化发送的配置
-	public function __construct($options,$exception){
+	public function __construct($options,$exception=false){
 		if(!array_key_exists('emailName',$options)||!array_key_exists('emailPass',$options)||!array_key_exists('host',$options)){
 			$res = ['status'=>'fail','info'=>'必须传入参数emailName,emailPass,host'];
 			$this->errMsg =  json_encode($res,JSON_UNESCAPED_UNICODE);
 		}
-		parent::__construct($exception=true);
+		parent::__construct($exception);
 		isset($options['debug'])?$this->SMTPDebug=$options['debug']:0;                    
 		$this->isSMTP();                         
 		$this->Host = $options['host'];;            
@@ -35,7 +35,7 @@ class Mail extends PHPMailer{
 	}
 
 	//发送邮件
-	public function sendMail($to,$subject,$content,$attachPath){
+	public function sendMail($to,$subject,$content,$attachPath=''){
 		if($this->errMsg!=''){
 			return $this->errMsg;
 		}
@@ -44,7 +44,7 @@ class Mail extends PHPMailer{
 			return json_encode($res,JSON_UNESCAPED_UNICODE);
 		}
 		$this->addAddress($to);
-		if(isset($attachPath)){
+		if($attachPath!=''){
 			if(file_exists($attachPath)){
 				$this->addAttachment($attachPath);
 			}else{
