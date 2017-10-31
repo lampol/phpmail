@@ -13,7 +13,7 @@ require 'vendor/autoload.php';
 //emailPass  email 密码    必传
 //host       email 服务器  必传
 
-$config = ['emailName'=>'yuanyierban@163.com','emailPass'=>'qwer1234','host'=>'smtp.163.com'];
+$config = ['emailName'=>'你的邮箱地址','emailPass'=>'密码','host'=>'smtp.163.com'];
 
 //$to 收件人邮箱     必选
 //$subject 邮件主题  必选
@@ -25,7 +25,7 @@ $config = ['emailName'=>'yuanyierban@163.com','emailPass'=>'qwer1234','host'=>'s
 //{"status":"success","info":"发送成功"}
 
 $mail = new Mail($config,true);
-$res = $mail->sendMail('807968192@qq.com','Ceshi','wojiushiceshiyixia','/tmp/hello.doc');
+$res = $mail->sendMail('收邮件的地址','邮件主题','邮件内容','附件地址');
 echo $res;
 
 
